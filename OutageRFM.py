@@ -1,6 +1,6 @@
 import pandas as pd
 #import the data
-outage = pd.read_excel("C:\\Users\\vkunkalagunt\\outage\\ETO_YN.xlsx")
+outage = pd.read_excel("ETO_YN.xlsx")
 #transform Outage_Flag as 1/0 format
 outage['Outage_Flag']=outage['Outage_Flag'].apply(lambda Outage_Flag:1 if Outage_Flag=='Yes' else 0)
 #convert our Categorical Variables into Dummy Variables using pandas, and drop the original categorical variables
@@ -29,9 +29,6 @@ rfm_train_accuracy
 rfm_test_accuracy=rfm.score(x_test,y_test)
 rfm_test_accuracy
 #saving the pickle file
-import os
-os.getcwd()
-os.chdir("C:\\Users\\vkunkalagunt\\outage")
 import pickle
 with open("rfmmodel.pkl","wb") as fid:
     pickle.dump(rfm, fid,2)
