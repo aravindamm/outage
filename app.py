@@ -1,6 +1,7 @@
 import numpy as np
 import pickle
 import sklearn
+import os
 from flask import Flask, request, render_template
 app = Flask(__name__, template_folder='flask-app/templates') 
 
@@ -65,9 +66,9 @@ def OutageFlag():
 
         pkl_file=open('rfmmodel.pkl','rb')
         rfmmodel=pickle.load(pkl_file)
-        test_prediction=rfmmodel.predict(np.array(new_vector).reshape(1,-1))
+        test_prediction=rfmmodel.predict(np.array(new_vector))
         
-        return 1
+        return rendor_template('result.html')
 
 if __name__ == '__main__':
     app.debug = True
