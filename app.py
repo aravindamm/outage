@@ -12,18 +12,7 @@ def home():
 def OutageFlag():
     if request.method=='POST':
         result=request.form
-        VectorGroup = result['VectorGroup']
-        Insulation = result['Insulation']
-        EnergyLosses = result['EnergyLosses']
-        PressureRelay = result['PressureRelay']
-        CoolingOperation = result['CoolingOperation']
-        Bushing = result['Bushing']
-        OverCurrentProtection = result['OverCurrentProtection']
-        FireFightingSystems = result['FireFightingSystems']
-        Breakdownvoltage = result['Breakdownvoltage']
-        Watercontent = result['Watercontent']
-        OilAcidity = result['OilAcidity']
-      
+              
     #prepare teh feature vector for prediction
         pkl_file=open('cat','rb')
         index_dict=pickle.load(pkl_file)
@@ -76,7 +65,7 @@ def OutageFlag():
 
         pkl_file=open('rfmmodel.pkl','rb')
         rfmmodel=pickle.load(pkl_file)
-        test_prediction=rfmmodel.predict(np.array(new_vector))
+        test_prediction=rfmmodel.predict(np.array(new_vector).reshape(1,-1))
         
         return render_template('result.html',prediction=test_prediction)
 
