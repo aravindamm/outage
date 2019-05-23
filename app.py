@@ -68,7 +68,7 @@ def OutageFlag():
         rfmmodel=pickle.load(pkl_file)
         test_prediction=rfmmodel.predict(np.array(new_vector))
         
-        return rendor_template('result.html')
+        return rendor_template('result.html',prediction=test_prediction)
 
 if __name__ == '__main__':
     app.debug = True
