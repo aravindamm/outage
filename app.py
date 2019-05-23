@@ -15,7 +15,7 @@ def OutageFlag():
     #prepare teh feature vector for prediction
         pkl_file=open('cat','rb')
         index_dict=pickle.load(pkl_file)
-        new_vector=np.array(np.zeros(len(index_dict)),reshape(1,-1))
+        new_vector=np.array(np.zeros(len(index_dict))).reshape(1,-1)
         
         try:
             new_vector[index_dict['VectorGroup_'+str(result['VectorGroup'])]]=1
