@@ -1,7 +1,7 @@
 import numpy as np
 import pickle
 from flask import Flask, request, render_template
-app = Flask(__name__)
+app = Flask(__name__,template="/templates")
 
 @app.route('/')
 def home():
