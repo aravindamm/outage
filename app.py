@@ -1,5 +1,7 @@
 import numpy as np
 import pickle
+import sklearn
+import cloudpickle
 from flask import Flask, request, render_template
 app = Flask(__name__,template_folder='flask-app/templates')
 
