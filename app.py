@@ -67,7 +67,7 @@ def OutageFlag():
         rfmmodel=pickle.load(pkl_file)
         test_prediction=rfmmodel.predict(np.array(new_vector).reshape(1,-1))
         
-        return 'Hello Prediction'
+        return 1
 
 if __name__ == '__main__':
     app.debug = True
