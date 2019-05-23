@@ -1,9 +1,7 @@
 import numpy as np
 import pickle
-import sklearn
-import os
 from flask import Flask, request, render_template
-app = Flask(__name__, template_folder='flask-app/templates') 
+app = Flask(__name__)
 
 @app.route('/')
 def home():
@@ -13,7 +11,7 @@ def home():
 def OutageFlag():
     if request.method=='POST':
         result=request.form
-              
+    
     #prepare teh feature vector for prediction
         pkl_file=open('cat','rb')
         index_dict=pickle.load(pkl_file)
@@ -68,8 +66,7 @@ def OutageFlag():
         rfmmodel=pickle.load(pkl_file)
         test_prediction=rfmmodel.predict(np.array(new_vector).reshape(1,-1))
         
-        return rendor_template('result.html',prediction=test_prediction)
+        return render_template('result.html',prediction=test_prediction)
 
 if __name__ == '__main__':
-    app.debug = True
     app.run()
