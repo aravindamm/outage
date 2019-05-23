@@ -1,1 +1,1 @@
-web: gunicorn outage.wsgi --log-file -
+web: gunicorn outage-prediction-app.wsgi --log-file -
